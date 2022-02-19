@@ -1,5 +1,4 @@
 import 'package:day_night_switcher/day_night_switcher.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Modules/XO/First/first.dart';
 import 'package:flutter_app/Shared/Cubit/AppCubit/cubit.dart';
@@ -10,6 +9,8 @@ import 'package:flutter_app/Style/Icons/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
  class GameWithFriend extends StatelessWidget {
+  const GameWithFriend({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {

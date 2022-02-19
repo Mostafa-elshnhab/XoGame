@@ -30,7 +30,7 @@ class Second extends StatelessWidget {
                           Expanded(
                             child: Column(
                               children: [
-                                Image.asset('assets/images/x.png',width: 100,color: cubit.isX?Color.fromRGBO(255, 255, 255, 1):Color.fromRGBO(255, 255, 255, .5),
+                                Image.asset('assets/images/x.png',width: 100,color: cubit.isX? const Color.fromRGBO(255, 255, 255, 1): const Color.fromRGBO(255, 255, 255, .5),
                                     colorBlendMode: BlendMode.modulate),
                               const  SizedBox(
                                   height: 20,
@@ -52,7 +52,7 @@ class Second extends StatelessWidget {
                           Expanded(
                             child: Column(
                               children: [
-                                Image.asset('assets/images/o.png',width: 100, color: cubit.isX?Color.fromRGBO(255, 255, 255, .5):Color.fromRGBO(255, 255, 255, 1),
+                                Image.asset('assets/images/o.png',width: 100, color: cubit.isX?const Color.fromRGBO(255, 255, 255, .5):const Color.fromRGBO(255, 255, 255, 1),
                                     colorBlendMode: BlendMode.modulate),
                               const  SizedBox(
                                   height: 20,

@@ -1,5 +1,4 @@
 import 'package:day_night_switcher/day_night_switcher.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Modules/XO/Second/second.dart';
 import 'package:flutter_app/Modules/XO/WiteFriend/gameWithFriend.dart';
@@ -7,7 +6,6 @@ import 'package:flutter_app/Shared/Cubit/AppCubit/cubit.dart';
 import 'package:flutter_app/Shared/Cubit/AppCubit/states.dart';
 import 'package:flutter_app/Shared/reusable/reusable%20components.dart';
 import 'package:flutter_app/Style/Colors/colors.dart';
-import 'package:flutter_app/Style/Icons/icon_broken.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 class First extends StatelessWidget {
   const First({Key? key}) : super(key: key);
@@ -46,7 +44,7 @@ class First extends StatelessWidget {
                   ) ,
                   elevation: 10,
                   child: MaterialButton(onPressed: (){
-                    navTo(context, Second());
+                    navTo(context, const Second());
                   },child:const Text('With Ai',style: TextStyle(fontWeight: FontWeight.w300,color: Colors.white),),height: 45,minWidth: 150,),
                 ),
                 const SizedBox(
@@ -66,7 +64,7 @@ class First extends StatelessWidget {
                   height: 40,
                 ),
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     child: DayNightSwitcher(
                       isDarkModeEnabled: cubit.isDark,
                       onStateChanged: cubit.onStateChanged,

@@ -1,9 +1,6 @@
-import 'dart:io';
 import 'dart:math';
 
-import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_app/Modules/XO/WithAi/gameWithAi.dart';
 import 'package:flutter_app/Shared/Cubit/AppCubit/states.dart';
 import 'package:flutter_app/Shared/reusable/reusable%20components.dart';
@@ -28,7 +25,6 @@ class AppCubit extends Cubit<AppStates> {
   bool stop=false;
   onRadioChange(value, context) {
     character = value;
-    print(value.toString());
     isX=!isX;
     emit(RadioState());
   }
@@ -116,7 +112,6 @@ class AppCubit extends Cubit<AppStates> {
         }
 
       }
-      print (clickNum);
       if(clickNum==9)
       {
         stop=true;
@@ -203,7 +198,6 @@ class AppCubit extends Cubit<AppStates> {
           }
         }
       }
-      print(clickNum);
       if (clickNum == 9) {
         stop=true;
         if (draw == 0) {
@@ -248,7 +242,6 @@ class AppCubit extends Cubit<AppStates> {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     isDark = isDarkModeEnabled;
     prefs.setBool('idDark', isDark);
-    print(isDark);
     emit(ChangeModeState());
   }
 

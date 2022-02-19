@@ -83,7 +83,7 @@ class Second extends StatelessWidget {
                         ) ,
                         elevation: 10,
                         child: MaterialButton(onPressed: (){
-                          navTo(context, GameWithAi(character: cubit.character,));
+                          navToAndFinish(context, GameWithAi(character: cubit.character,));
                         },child:const Text('Continue',style: TextStyle(fontWeight: FontWeight.w300),),height: 45,minWidth: 150,),
                       ),
                     ],

@@ -57,7 +57,8 @@ class First extends StatelessWidget {
                   ) ,
                   elevation: 10,
                   child: MaterialButton(onPressed: (){
-                    navToAndFinish(context,GameWithFriend());
+                    cubit.again(cubit.character!);
+                    navToAndFinish(context,const GameWithFriend());
                   },child:const Text('With a Friend',style: TextStyle(fontWeight: FontWeight.w300),),height: 45,minWidth: 150,),
                 ),
                 const SizedBox(

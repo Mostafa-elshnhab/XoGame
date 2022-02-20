@@ -213,19 +213,125 @@ class AppCubit extends Cubit<AppStates> {
         }
       }
       List? availableFields=[];
+      int? nextNum;
       for(int z=0;z<9;z++)
       {
+
         if (isClick[z]==false)
         {
            availableFields.add(z);
         }
+        if(z<3)
+        {
+          if ((filledNum[z]==filledNum[z+3])&&(filledNum[z]==0||filledNum[z]==1))
+          {
+            if(isClick[z+6]==false)
+            {
+              nextNum=z+6;
+            }
+          }
+          if((filledNum[z]==filledNum[z+6])&&(filledNum[z]==0||filledNum[z]==1))
+          {
+            if(isClick[z+3]==false)
+            {
+              nextNum=z+3;
+            }
+          }
+          if((filledNum[z+3]==filledNum[z+6])&&(filledNum[z+3]==0||filledNum[z+3]==1))
+          {
+            if(isClick[z]==false)
+            {
+              nextNum=z;
+            }
+          }
+          if (z == 0) {
+            if ((filledNum[z] == filledNum[z + 4])&&(filledNum[z]==0||filledNum[z]==1) ) {
+              if(isClick[z+8]==false)
+              {
+                nextNum=z+8;
+              }
+
+            }
+            if((filledNum[z] == filledNum[z + 8])&&(filledNum[z]==0||filledNum[z]==1) )
+            {
+
+              if(isClick[z+4]==false)
+              {
+                nextNum=z+4;
+              }
+            }
+            if((filledNum[z+4] == filledNum[z + 8])&&(filledNum[z+4]==0||filledNum[z+4]==1))
+            {
+
+              if(isClick[z]==false)
+              {
+                nextNum=z;
+              }
+            }
+          }
+          if (z == 2) {
+
+            if ((filledNum[z] == filledNum[z + 2])&&(filledNum[z]==0||filledNum[z]==1) ) {
+              if(isClick[z+4]==false)
+              {
+                nextNum=z+4;
+              }
+
+            }
+            if((filledNum[z] == filledNum[z + 4])&&(filledNum[z]==0||filledNum[z]==1) )
+            {
+
+              if(isClick[z+2]==false)
+              {
+                nextNum=z+2;
+              }
+            }
+            if((filledNum[z+2] == filledNum[z + 4])&&(filledNum[z+2]==0||filledNum[z+2]==1))
+            {
+
+              if(isClick[z]==false)
+              {
+                nextNum=z;
+              }
+            }
+
+          }
+        }
+        if (z == 0 || z == 3 || z == 6) {
+
+          if ((filledNum[z] == filledNum[z + 1])&&(filledNum[z]==0||filledNum[z]==1)) {
+            if(isClick[z+2]==false)
+            {
+              nextNum=z+2;
+            }
+
+          }
+          if((filledNum[z] == filledNum[z + 2])&&(filledNum[z]==0||filledNum[z]==1))
+          {
+
+            if(isClick[z+1]==false)
+            {
+              nextNum=z+1;
+            }
+          }
+          if((filledNum[z+1] == filledNum[z + 2])&&(filledNum[z+1]==0||filledNum[z+1]==1) )
+          {
+
+            if(isClick[z]==false)
+            {
+              nextNum=z;
+            }
+          }
+        }
       }
+
       if(availableFields.isNotEmpty&&stop==false)
       {
         stop=true;
+        nextNum ??= availableFields[_random.nextInt(availableFields.length)];
         Future.delayed(const Duration(seconds: 1), ()
         {
-          changeClick(availableFields[_random.nextInt(availableFields.length)], context, false);
+          changeClick(nextNum!, context, false);
         });
       }
 
